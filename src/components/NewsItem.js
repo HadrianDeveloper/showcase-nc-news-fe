@@ -1,29 +1,27 @@
 import s from '../css/NewsItem.module.css';
-import { useEffect, useState, useContext } from "react"
-import { LoadingContext } from '../contexts/Loading';
+import { useEffect, useState } from "react"
 import { useParams } from "react-router"
 import { fetchArticleById } from "../utils/fetchers"
 import { dateformatter } from "../utils/formatters";
-import Comments from './Comments';
+import Loading from './Loading';
 
 
 export default function NewsItem() {
-    const {loading, setLoading} = useContext(LoadingContext);
+    const [loading, setLoading] = useState(true);
     const [article, setArticle] = useState({});
     const {article_id} = useParams();
 
     useEffect(() => {
-        setLoading(true)
         fetchArticleById(article_id)
         .then((article) => {
-            setLoading(false)
             setTimeout(() => {
-                setArticle(article)
+                setArticle(article);
+                setLoading(false);
             }, 50)
         })
-    }, [])
+    }, [article_id])
 
-    if (!article.body) return;
+    if (loading) return <Loading />
 
     return (
     <main>
@@ -41,7 +39,7 @@ export default function NewsItem() {
         <hr />
         <section>
             <h3>Comments</h3>
-            <Comments id={article_id} />
+            <p>[PLACEHOLDER]</p>
         </section>
     </section>
     </main> 

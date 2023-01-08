@@ -14,8 +14,4 @@ export function fetchArticleById(id) {
         .then(({data}) => data.article[0])
 };
 
-// export function fetchCommentsForArticle(id) {
-//     return api.get(`/articles/${id}/comments`)
-//         .then(({data}) => data)
-// }
 

@@ -1,12 +1,12 @@
 import s from '../css/Nav.module.css';
-import { useContext } from "react";
-import { LoggedInContext } from "../contexts/LoggedIn";
 import { Link } from "react-router-dom";
+import { useContext } from 'react';
+import { LoggedInContext } from '../contexts/LoggedIn';
 
 
 export default function Nav() {
 
- const {loggedin} = useContext(LoggedInContext);
+    const {loggedin} = useContext(LoggedInContext)
 
     return (
         <div>
