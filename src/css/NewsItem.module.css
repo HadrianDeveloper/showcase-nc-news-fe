@@ -1,4 +1,4 @@
-/* .topic {
+.topic {
     background-color: rgb(158, 230, 158);
     padding: 3px;
     font-weight: bolder;
@@ -16,5 +16,11 @@
 }
 
 .like {
-  width: 5vmax
-} */
+  width: 5vmax;
+} 
+
+.vote {
+  font-weight: bolder;
+  display: flex;
+  justify-content: flex-end
+;}

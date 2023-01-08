@@ -1,3 +1,4 @@
+import s from '../css/Articles.module.css';
 import { Link } from 'react-router-dom';
 import { useState, useEffect, useContext } from "react";
 import { fetchArticles } from "../utils/fetchers";
@@ -19,7 +20,7 @@ export default function Articles() {
 
     const allArticles = articles.map((i) => {
         return (
-            <Link key={i.article_id} to={`/articles/${i.article_id}`}>
+            <Link className={s.linkcard} key={i.article_id} to={`/articles/${i.article_id}`}>
             <li className='list-item'>
                 <h4>{i.title}</h4>
                 <p className='metadata'>By {i.author} on {dateformatter(i.created_at)}</p>

@@ -1,3 +1,4 @@
+import s from '../css/Nav.module.css';
 import { useContext } from "react";
 import { LoggedInContext } from "../contexts/LoggedIn";
 import { Link } from "react-router-dom";
@@ -10,12 +11,13 @@ export default function Nav() {
     return (
         <div>
             <hr />
-            <nav>
-                <Link to='/'>Home</Link>
-                <Link to='/articles'>Articles</Link>
-                <Link to='/login'>{loggedin ? 'Log out' : 'Log in'}</Link>
+            <nav className={s.navvv} >
+                <Link className={s.navlink} to='/'>Home</Link>
+                <Link className={s.navlink} to='/articles'>Articles</Link>
+                <Link className={s.navlink} to='/login'>{loggedin ? 'Log out' : 'Log in'}</Link>
             </nav>
             <hr />
         </div>
     )
 };
+

@@ -9,5 +9,4 @@ export default function Home() {
             <p>Welcome {loggedin}!</p>
         </main>
     )
-
-}
+};
