@@ -6,12 +6,15 @@ const api = axios.create({
 
 export function fetchArticles() {
     return api.get('/articles')
-        .then(({data}) => data.allArticles)
+        .then(({data}) => data.allArticles);
 };
 
 export function fetchArticleById(id) {
     return api.get(`/articles/${id}`)
-        .then(({data}) => data.article[0])
+        .then(({data}) => data.article[0]);
 };
 
-
+export function fetchCommentsForArticle(id) {
+    return api.get(`/articles/${id}/comments`)
+        .then(({data}) => data);
+};

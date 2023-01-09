@@ -25,12 +25,12 @@ export default function Articles() {
         return (
             <Link className={s.linkcard} key={art.article_id} to={`/articles/${art.article_id}`}>
             <li className='list-item'>
-                <h4>{i.title}</h4>
+                <h4>{art.title}</h4>
                 <p className='metadata'>By {art.author} on {dateformatter(art.created_at)}</p>
             </li>
             </Link>
         )
-    });
+    })
 
     return (
         <main>

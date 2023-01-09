@@ -4,6 +4,7 @@ import { useParams } from "react-router"
 import { fetchArticleById } from "../utils/fetchers"
 import { dateformatter } from "../utils/formatters";
 import Loading from './Loading';
+import Comments from './Comments';
 
 
 export default function NewsItem() {
@@ -37,10 +38,7 @@ export default function NewsItem() {
             </div>
         </article>
         <hr />
-        <section>
-            <h3>Comments</h3>
-            <p>[PLACEHOLDER]</p>
-        </section>
+        <Comments id={article_id} />
     </section>
     </main> 
     )
