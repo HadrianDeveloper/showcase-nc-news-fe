@@ -2,6 +2,7 @@ import s from '../css/Comments.module.css';
 import { useEffect, useState } from "react";
 import { fetchCommentsForArticle } from "../utils/fetchers";
 import Loading from './Loading';
+import AddComment from './AddComment';
 
 export default function Comments({id}) {
     const [loading, setLoading] = useState(true);
@@ -27,6 +28,7 @@ export default function Comments({id}) {
     return (
         <section>
             <h3>{sectionHeader()}</h3>
+            <AddComment id={id} setComments={setComments} />
             <ul>
             {comments.map((c) => {
                 return (
