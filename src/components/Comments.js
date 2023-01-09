@@ -21,15 +21,15 @@ export default function Comments({id}) {
         <section>
             <h3>Comments</h3>
             <ul>
-                {comments.map((c) => {
-                    return (
-                        <li key={c.comment_id}>
-                            <h4 className={s.author}>{c.author}</h4>
-                            <p className={s.comment}>{c.body}</p>
-                            <hr />
-                        </li>
-                    )
-                })}
+            {comments.map((c) => {
+                return (
+                    <li key={c.comment_id}>
+                        <h4 className={s.author}>{c.author}</h4>
+                        <p className={s.comment}>{c.body}</p>
+                        <hr />
+                    </li>
+                )
+            })}
             </ul>
         </section>   
     )
