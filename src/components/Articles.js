@@ -23,14 +23,19 @@ export default function Articles() {
 
     const allArticles = articles.map((art) => {
         return (
-            <Link className={s.linkcard} key={art.article_id} to={`/articles/${art.article_id}`}>
-            <li className='list-item'>
-                <h4>{art.title}</h4>
-                <p className='metadata'>By {art.author} on {dateformatter(art.created_at)}</p>
-            </li>
+            <Link 
+                className={s.linkcard} 
+                key={art.article_id} 
+                to={`/articles/${art.article_id}`}>
+                <li className='list-item'>
+                    <h4>{art.title}</h4>
+                    <p className='metadata'>
+                        By {art.author} on {dateformatter(art.created_at)}
+                    </p>
+                </li>
             </Link>
         )
-    })
+    });
 
     return (
         <main>

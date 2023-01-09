@@ -15,12 +15,3 @@
   font-style: italic;
 }
 
-.like {
-  width: 5vmax;
-} 
-
-.vote {
-  font-weight: bolder;
-  display: flex;
-  justify-content: flex-end
-;}

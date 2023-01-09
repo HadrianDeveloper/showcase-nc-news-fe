@@ -5,6 +5,7 @@ import { fetchArticleById } from "../utils/fetchers"
 import { dateformatter } from "../utils/formatters";
 import Loading from './Loading';
 import Comments from './Comments';
+import Votes from './Votes';
 
 
 export default function NewsItem() {
@@ -29,14 +30,19 @@ export default function NewsItem() {
     <main>
     <section className={s.articleName}>
         <article>
-            <span className={s.topic}>{article.topic.toUpperCase()}</span>
-            <h2>{article.title}</h2>
-            <p className={s.metadata}>By {article.author} on {dateformatter(article.created_at)}</p>
-            <p>{article.body}</p>
-            <div className={s.vote}>
-                <img className={s.like} src='https://img.icons8.com/color/512/approval.png' />
-                <span>{article.votes}</span>
-            </div>
+            <span className={s.topic}>
+                {article.topic.toUpperCase()}
+            </span>
+            <h2>
+                {article.title}
+            </h2>
+            <p className={s.metadata}>
+                By {article.author} on {dateformatter(article.created_at)}
+            </p>
+            <p>
+                {article.body}
+            </p>
+            <Votes id={article_id} votes={article.votes} />
         </article>
         <hr />
         <Comments id={article_id} />

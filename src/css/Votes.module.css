@@ -1,0 +1,11 @@
+.vote {
+    font-weight: bolder;
+    display: flex;
+    justify-content: flex-end
+  ;}
+
+.like {
+width: 5vmax;
+} 
+  
+  
