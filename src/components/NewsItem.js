@@ -10,6 +10,7 @@ import Comments from './Comments';
 export default function NewsItem() {
     const [loading, setLoading] = useState(true);
     const [article, setArticle] = useState({});
+    
     const {article_id} = useParams();
 
     useEffect(() => {

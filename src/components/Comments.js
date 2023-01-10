@@ -7,11 +7,18 @@ export default function Comments({id}) {
     const [loading, setLoading] = useState(true);
     const [comments, setComments] = useState([]);
 
+    function sectionHeader() {
+        return comments.length ? 
+            `${comments.length} comments` : 'No comments yet!'
+    }
+
     useEffect(() => {
         fetchCommentsForArticle(id)
         .then((coms) => {
-            setComments(coms);
-            setLoading(false);
+            if (coms.length) {
+                setComments(coms);
+                setLoading(false);
+            } 
         })
     }, [id]);
 
@@ -19,7 +26,7 @@ export default function Comments({id}) {
 
     return (
         <section>
-            <h3>Comments</h3>
+            <h3>{sectionHeader()}</h3>
             <ul>
             {comments.map((c) => {
                 return (
