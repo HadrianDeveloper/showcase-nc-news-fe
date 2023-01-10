@@ -14,6 +14,4 @@ export function fetchArticleById(id) {
         .then(({data}) => data.article[0])
 };
 
-export function fetchCommentsById() {
-    
-}
+

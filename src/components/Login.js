@@ -1,1 +1,7 @@
-export default function Login() {}
+export default function Login() {
+
+    return (
+        <p>[placeholder]</p>
+    )
+
+}

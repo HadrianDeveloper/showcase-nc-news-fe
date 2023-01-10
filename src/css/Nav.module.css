@@ -1,0 +1,12 @@
+.navvv {
+    font-weight: bolder;
+}
+
+.navlink {
+    text-decoration: none;
+}
+
+.navlink:active {
+    background-color: chartreuse;
+}
+
