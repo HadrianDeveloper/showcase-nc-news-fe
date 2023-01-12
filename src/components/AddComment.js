@@ -1,34 +1,66 @@
 import s from '../css/AddComment.module.css';
-import { useContext, useState } from 'react';
+import { useContext, useState, useRef } from 'react';
 import { LoggedInContext } from '../contexts/LoggedIn';
 import { postComment } from '../utils/posters';
 
-
 export default function AddComment({setComments, id}) {
 
-    const [input, setInput] = useState('');
-    const [loading, setLoading] = useState(false);
     const {loggedin} = useContext(LoggedInContext);
+    const abortRef = useRef(null);
 
-    function handleSubmit(e) {
-        e.preventDefault();
+    const [loading, setLoading] = useState(false);
+    const [input, setInput] = useState({
+        username: loggedin,
+        body: '',
+    });
+
+    function handleAbort() {
+        setLoading(false);
+        clearTimeout(abortRef.current);
+        alert('Post aborted in the nick of time!');
+    };
+
+    function handleSubmit() {
         setLoading(true);
-        postComment(id, input, loggedin)
-        .then((res) => {
-
-        })
+        abortRef.current = setTimeout(() => {
+            postComment(id, input)
+            .then((status) => {
+                setLoading(false)
+                if (status === 201) {
+                    setInput({
+                        username: loggedin,
+                        body: '',
+                    })
+                } else {
+                    alert('Whoops, something went wrong. Please try again!')
+                }    
+            })
+        }, 2000)
+    };
+    
+    function handleInput(e) {
+        setInput({...input, body: e.target.value})
     }
 
     if (!loggedin) return;
 
     return (
-        <form onSubmit={handleSubmit}>
+        <section>
             <textarea 
                 className={s.textInput}
-                onChange={(e) => setInput(e.target.value)} />
+                onChange={handleInput}
+                value={input.body}
+                disabled={loading}
+                placeholder='Enter comments...'
+                required />
             <br />
-            <button 
-                type='submit'>{loading ? 'Cancel' : 'Post'}</button>
-        </form>
+            <button
+                onClick={handleSubmit} 
+                disabled={input.body.length < 5 || loading}>
+                {loading ? 'Posting...' : 'Post'}
+            </button>
+            {loading && <button 
+                onClick={handleAbort}>Cancel</button>}
+        </section>
     )
 };
