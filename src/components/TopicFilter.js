@@ -22,6 +22,7 @@ export default function TopicFilter() {
     return (
         <section className={s.selectBox}>
             <select onChange={handleSelect} className={s.option}>
+                <option disabled>Pick a topic</option>
                 {currTopics.map((topic, i) => 
                     <option value={topic} key={i}>
                         {topic}

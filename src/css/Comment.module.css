@@ -15,3 +15,8 @@
     border: 1px solid grey;
     letter-spacing: 1.5pt;
 }
+
+.bin {
+    width: 4vw;
+    margin: 0;
+}
