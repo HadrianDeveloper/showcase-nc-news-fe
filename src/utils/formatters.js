@@ -17,8 +17,6 @@ export function formatArticleList(fetchedArticles) {
 };
 
 export function createTopicArr(data) {
-    const topicArray = data.map((topic) => topic.slug);
-        topicArray.unshift('Pick');
-    return topicArray
+    return data.map((topic) => topic.slug);
 };
 
