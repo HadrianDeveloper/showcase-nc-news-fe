@@ -1,10 +1,8 @@
-import { useNavigate } from 'react-router-dom';
 import s from '../css/Error404.module.css';
+import { useNavigate } from 'react-router-dom';
 
 export default function Error404() {
-
     const navigate = useNavigate();
-
     return (
         <section>
             <p>Page not found!</p>
@@ -14,9 +12,7 @@ export default function Error404() {
                 alt='go back to previous page'
                 className={s.backButton}  
             />
-            </button>
-            
-           
+            </button>           
         </section>
     )
 };

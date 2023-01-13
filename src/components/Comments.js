@@ -1,11 +1,11 @@
-import s from '../css/Comments.module.css';
 import { useEffect, useState } from "react";
+import { Link } from 'react-router-dom';
 import { fetchCommentsForArticle } from "../utils/fetchers";
 import Loading from './Loading';
-import AddComment0 from './AddComment';
+import CommentAdder from './CommentAdder';
 import Comment from './Comment';
 import useScrollToHeader from '../customEffects/useScrollToHeader';
-import { Link } from 'react-router-dom';
+
 
 export default function Comments({id}) {
     useScrollToHeader();
@@ -33,7 +33,7 @@ export default function Comments({id}) {
     return (
         <section>
             <h3>{sectionHeader()}</h3>
-            <AddComment0 id={id} setComments={setComments} />
+            <CommentAdder id={id} setComments={setComments} />
             <ul>
                 {comments?.map((comment) => 
                     <Comment 

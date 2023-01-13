@@ -4,8 +4,8 @@ import { useParams, useNavigate } from "react-router-dom"
 import { fetchArticleById } from "../utils/fetchers"
 import { dateformatter } from "../utils/formatters";
 import Loading from './Loading';
-import Comments from './Comments';
 import Votes from './Votes';
+import Comments from './Comments';
 
 
 export default function Article() {

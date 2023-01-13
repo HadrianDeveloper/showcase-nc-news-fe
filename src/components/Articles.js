@@ -1,26 +1,31 @@
 import s from '../css/Articles.module.css';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { useState, useEffect } from "react";
 import { fetchArticles } from "../utils/fetchers";
 import Loading from './Loading.js';
+import TopicFilter from './TopicFilter';
 
 
 export default function Articles() {
 
-    const [articles, setArticles] = useState([]);
+    const {topic} = useParams();
     const [loading, setLoading] = useState(true);
-
+    const [articles, setArticles] = useState([]);
+    
     useEffect(() => {
-        fetchArticles()
+        fetchArticles(topic)
         .then((articles) => {
-            setArticles(articles)
-            setLoading(false)
+            setArticles(articles);
+            setLoading(false);
         })
-    }, [articles]);
+    }, [topic]);
 
     if (loading) return <Loading />
 
     return (
+        <div>
+        <h2>{topic ? `Articles on ${topic}` : 'All articles'}</h2>
+        <TopicFilter />
         <ul>
             {articles.map((a) => 
                 <Link
@@ -31,5 +36,6 @@ export default function Articles() {
                 </Link>
             )}
         </ul>
+        </div>
     )
 };

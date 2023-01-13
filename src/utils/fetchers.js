@@ -1,10 +1,12 @@
 import axios from "axios";
-import { formatArticleList } from "./formatters";
+import { createTopicArr, formatArticleList } from "./formatters";
 
 axios.defaults.baseURL = 'https://persian-blue-millipede-veil.cyclic.app/api'
 
-export function fetchArticles() {
-    return axios.get('/articles')
+
+export function fetchArticles(topic) {
+    let query = (topic) ? `?topic=${topic}` : '';
+    return axios.get(`/articles${query}`)
         .then(({data}) => formatArticleList(data.allArticles))
         .then((readyList) => readyList)
 };
@@ -19,3 +21,8 @@ export function fetchCommentsForArticle(id) {
         .then(({data}) => data);
 };
 
+export function fetchTopics() {
+    return axios.get('/topics')
+        .then(({data}) => createTopicArr(data.allTopics))
+        .then((topicArray) => topicArray)
+};

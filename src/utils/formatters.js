@@ -15,3 +15,10 @@ export function formatArticleList(fetchedArticles) {
         </li>
     )
 };
+
+export function createTopicArr(data) {
+    const topicArray = data.map((topic) => topic.slug);
+        topicArray.unshift('Pick');
+    return topicArray
+};
+
