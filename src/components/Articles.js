@@ -1,9 +1,7 @@
 import s from '../css/Articles.module.css';
 import { Link, useParams } from 'react-router-dom';
 import { useState, useEffect } from "react";
-import { fetchArticles } from "../utils/fetchers";
-import Loading from './Loading.js';
-import TopicFilter from './TopicFilter';
+import { Loading, TopicFilter, fetchArticles } from './index';
 
 
 export default function Articles() {

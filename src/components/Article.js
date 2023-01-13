@@ -1,11 +1,7 @@
 import s from '../css/Article.module.css';
 import { useEffect, useState } from "react"
 import { useParams, useNavigate } from "react-router-dom"
-import { fetchArticleById } from "../utils/fetchers"
-import { dateformatter } from "../utils/formatters";
-import Loading from './Loading';
-import Votes from './Votes';
-import Comments from './Comments';
+import { Loading, Votes, Comments, fetchArticleById, dateformatter } from './index';
 
 
 export default function Article() {
