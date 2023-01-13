@@ -37,7 +37,7 @@ export default function Comments({id}) {
             <ul>
                 {comments?.map((comment) => 
                     <Comment 
-                        key={comment.comment_id} 
+                        key={comment.comment_id}
                         comment={comment} />
                 )} 
             </ul>
