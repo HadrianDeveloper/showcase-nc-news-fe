@@ -1,9 +1,10 @@
 .main {
     display: flex;
     justify-content: center;
+
 }
 
-.notfound {
-    width: 50vw;
-}
-
+.backButton {
+    width: 15vw;
+    margin: 0;
+  }

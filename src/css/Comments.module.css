@@ -4,5 +4,6 @@
 
 .comment {
     font-weight: 300;
+    word-break: break-all;
 }
 

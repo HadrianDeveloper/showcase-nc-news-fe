@@ -1,14 +1,22 @@
-import styles from '../css/Error404.module.css';
+import { useNavigate } from 'react-router-dom';
+import s from '../css/Error404.module.css';
 
 export default function Error404() {
+
+    const navigate = useNavigate();
+
     return (
-        <main className={styles.main}>
-            <img 
-                src='https://img.icons8.com/fluency/512/nothing-found.png' 
-                alt='page not found'
-                className={styles.notfound}
+        <section>
+            <p>Page not found!</p>
+            <button onClick={() => navigate(-1)}>
+            <img  
+                src='https://img.icons8.com/ios-glyphs/512/circled-left-2.png' 
+                alt='go back to previous page'
+                className={s.backButton}  
             />
-            <h2>Page not found!</h2>
-        </main>
+            </button>
+            
+           
+        </section>
     )
 };

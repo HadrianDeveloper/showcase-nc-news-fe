@@ -1,6 +1,6 @@
-import s from '../css/NewsItem.module.css';
+import s from '../css/Article.module.css';
 import { useEffect, useState } from "react"
-import { useParams } from "react-router"
+import { useParams, useNavigate } from "react-router-dom"
 import { fetchArticleById } from "../utils/fetchers"
 import { dateformatter } from "../utils/formatters";
 import Loading from './Loading';
@@ -8,11 +8,12 @@ import Comments from './Comments';
 import Votes from './Votes';
 
 
-export default function NewsItem() {
+export default function Article() {
     const [loading, setLoading] = useState(true);
     const [article, setArticle] = useState({});
     
     const {article_id} = useParams();
+    const navigate = useNavigate();
 
     useEffect(() => {
         fetchArticleById(article_id)
@@ -29,6 +30,11 @@ export default function NewsItem() {
     return (
     <main>
     <section className={s.articleName}>
+        <img  
+            src='https://img.icons8.com/ios-glyphs/512/circled-left-2.png' 
+            alt='go back to previous page'
+            className={s.backButton}
+            onClick={() => navigate(-1)} />
         <article>
             <span className={s.topic}>
                 {article.topic.toUpperCase()}

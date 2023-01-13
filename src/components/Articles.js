@@ -2,7 +2,6 @@ import s from '../css/Articles.module.css';
 import { Link } from 'react-router-dom';
 import { useState, useEffect } from "react";
 import { fetchArticles } from "../utils/fetchers";
-import { dateformatter } from '../utils/formatters';
 import Loading from './Loading.js';
 
 
@@ -21,27 +20,16 @@ export default function Articles() {
 
     if (loading) return <Loading />
 
-    const allArticles = articles.map((art) => {
-        return (
-            <Link 
-                className={s.linkcard} 
-                key={art.article_id} 
-                to={`/articles/${art.article_id}`}>
-                <li className='list-item'>
-                    <h4>{art.title}</h4>
-                    <p className='metadata'>
-                        By {art.author} on {dateformatter(art.created_at)}
-                    </p>
-                </li>
-            </Link>
-        )
-    });
-
     return (
-        <main>
-            <ul>
-                {allArticles}
-            </ul>
-        </main>
+        <ul>
+            {articles.map((a) => 
+                <Link
+                    className={s.listItem}
+                    key={a.key} 
+                    to={`/articles/${a.key}`}>
+                        {a}
+                </Link>
+            )}
+        </ul>
     )
 };

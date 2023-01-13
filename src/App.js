@@ -7,7 +7,7 @@ import Nav from './components/Nav';
 import Login from './components/Login';
 import Home from './components/Home';
 import Articles from './components/Articles';
-import NewsItem from './components/NewsItem';
+import Article from './components/Article';
 import Error404 from './components/Error404';
 
 function App() {
@@ -24,7 +24,7 @@ function App() {
           <Route path='/' element={<Home />} />
           <Route path='/login' element={<Login />} />
           <Route path='/articles' element={<Articles />} />
-          <Route path='/articles/:article_id' element={<NewsItem />} />
+          <Route path='/articles/:article_id' element={<Article />} />
           <Route path='/*' element={<Error404 />} />
         </Routes>
       </main>
