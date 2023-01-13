@@ -1,10 +1,14 @@
-import s from '../css/Comments.module.css';
 import { useEffect, useState } from "react";
+import { Link } from 'react-router-dom';
 import { fetchCommentsForArticle } from "../utils/fetchers";
 import Loading from './Loading';
-import AddComment0 from './AddComment';
+import CommentAdder from './CommentAdder';
+import Comment from './Comment';
+import useScrollToHeader from '../customEffects/useScrollToHeader';
+
 
 export default function Comments({id}) {
+    useScrollToHeader();
 
     const [loading, setLoading] = useState(true);
     const [comments, setComments] = useState([]);
@@ -29,18 +33,15 @@ export default function Comments({id}) {
     return (
         <section>
             <h3>{sectionHeader()}</h3>
-            <AddComment0 id={id} setComments={setComments} />
+            <CommentAdder id={id} setComments={setComments} />
             <ul>
-            {comments.map((c) => {
-                return (
-                    <li key={c.comment_id}>
-                        <h4 className={s.author}>{c.author}</h4>
-                        <p className={s.comment}>{c.body}</p>
-                        <hr />
-                    </li>
-                )
-            })}
+                {comments?.map((comment) => 
+                    <Comment 
+                        key={comment.comment_id} 
+                        comment={comment} />
+                )} 
             </ul>
+            <Link to={`/articles/${id}`}><p>Top of page</p></Link>
         </section>   
     )
 };

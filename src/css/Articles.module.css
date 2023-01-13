@@ -1,4 +1,10 @@
-.linkcard {
+.articleList {
     text-decoration: none;
-    color:rgb(44, 44, 44)
+    color:rgb(44, 44, 44);
+}
+
+.listItem {
+    background-color: rgb(188, 230, 216);
+    text-decoration: none;
+    margin: 0px 5px;
 }

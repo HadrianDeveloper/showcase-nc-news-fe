@@ -1,5 +1,5 @@
-import { useEffect, useState } from 'react';
 import s from '../css/Votes.module.css';
+import { useEffect, useState } from 'react';
 import { patchVote } from '../utils/patchers';
 
 export default function Votes({id, votes}) {

@@ -3,7 +3,7 @@ import { useContext, useState, useRef } from 'react';
 import { LoggedInContext } from '../contexts/LoggedIn';
 import { postComment } from '../utils/posters';
 
-export default function AddComment({setComments, id}) {
+export default function CommentAdder({setComments, id}) {
 
     const {loggedin} = useContext(LoggedInContext);
     const abortRef = useRef(null);
