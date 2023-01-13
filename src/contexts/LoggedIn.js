@@ -3,7 +3,7 @@ export const LoggedInContext = createContext()
 
 
 export function LoggedInProvider({children}) {
-    const [loggedin, setLoggedin] = useState('Zelenski');
+    const [loggedin, setLoggedin] = useState('grumpy19');
     return (
         <LoggedInContext.Provider value={{loggedin, setLoggedin}}>
             {children}
