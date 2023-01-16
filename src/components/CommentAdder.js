@@ -7,10 +7,10 @@ export default function CommentAdder({id}) {
 
     const {loggedin} = useContext(LoggedInContext);
     const abortRef = useRef(null);
-
     const [loading, setLoading] = useState(false);
+    
     const [input, setInput] = useState({
-        username: loggedin.username,
+        username: '',
         body: '',
     });
 
@@ -23,12 +23,12 @@ export default function CommentAdder({id}) {
     function handleSubmit() {
         setLoading(true);
         abortRef.current = setTimeout(() => {
-            postComment(id, input)
+            postComment(id, input = loggedin.username)
             .then((status) => {
-                setLoading(false)
+                setLoading(false);
                 if (status === 201) {
                     setInput({
-                        username: loggedin,
+                        username: loggedin.username,
                         body: '',
                     })
                 } else {

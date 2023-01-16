@@ -4,6 +4,7 @@ import { fetchUser } from '../utils/fetchers';
 import { useContext, useEffect } from "react"
 import { useNavigate } from 'react-router-dom';
 import { LoggedInContext } from "../contexts/LoggedIn"
+import CardOfUname from './CardOfUname';
 
 
 export default function Login() {
@@ -66,6 +67,7 @@ export default function Login() {
             </Button>
           </Box>
         </Box>
+        <CardOfUname />
       </Container>
   );
 }

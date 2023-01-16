@@ -36,10 +36,9 @@ export default function Comment({comment}) {
                 {!showAll && comment.body.length > 150 && '...'}
             </span>
             </p>
-            {(comment.author === loggedin.username) && (
+            {loggedin && (comment.author === loggedin.username) && (
                 <button onClick={handleDelete} disabled={deleting}>{binImage}</button>
-            )}
-            
+            )}       
         </li>
     )
 };
