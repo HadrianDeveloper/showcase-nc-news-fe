@@ -1,6 +1,7 @@
 import s from '../css/Votes.module.css';
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { patchVote } from '../utils/patchers';
+import { LoggedInContext } from '../contexts/LoggedIn';
 
 export default function Votes({id, votes}) {
 
@@ -8,6 +9,7 @@ export default function Votes({id, votes}) {
     const [upvoteNext, setUpvoteNext] = useState(true);
     const [err, setErr] = useState(false);
     const [disabled, setDisabled] = useState(false);
+    const {loggedin} = useContext(LoggedInContext);
 
     const voteImage = <img 
         className={s.like}
@@ -29,6 +31,12 @@ export default function Votes({id, votes}) {
             setErr(!err);
         }
     }, [err]);
+
+    useEffect(() => {
+       if (!loggedin) {
+        setDisabled(true)
+       }
+    }, [])
 
     function disabler() {
         setDisabled(true)

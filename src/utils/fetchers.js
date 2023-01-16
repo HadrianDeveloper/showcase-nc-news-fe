@@ -26,3 +26,17 @@ export function fetchTopics() {
         .then(({data}) => createTopicArr(data.allTopics))
         .then((topicArray) => topicArray)
 };
+
+export function fetchUser(input) {
+    let loggedInUser = {};
+    return axios.get('/users')
+        .then(({data}) => {
+            const users = data.allUsers;
+            for (let x = 0; x < users.length; x++) {
+                if (users[x].username === input.username) {
+                    loggedInUser = users[x]
+                }
+            }
+            return loggedInUser;
+        })
+};
