@@ -3,14 +3,14 @@ import { useContext, useState, useRef } from 'react';
 import { LoggedInContext } from '../contexts/LoggedIn';
 import { postComment } from '../utils/posters';
 
-export default function CommentAdder({setComments, id}) {
+export default function CommentAdder({id}) {
 
     const {loggedin} = useContext(LoggedInContext);
     const abortRef = useRef(null);
 
     const [loading, setLoading] = useState(false);
     const [input, setInput] = useState({
-        username: loggedin,
+        username: loggedin.username,
         body: '',
     });
 
@@ -40,7 +40,7 @@ export default function CommentAdder({setComments, id}) {
     
     function handleInput(e) {
         setInput({...input, body: e.target.value})
-    }
+    };
 
     if (!loggedin) return;
 
