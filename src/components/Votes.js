@@ -9,6 +9,12 @@ export default function Votes({id, votes}) {
     const [err, setErr] = useState(false);
     const [disabled, setDisabled] = useState(false);
 
+    const voteImage = <img 
+        className={s.like}
+        title={upvoteNext ? 'Click to like' : 'Undo like'} 
+        src='https://img.icons8.com/color/512/approval.png'
+    />
+
     useEffect(() => {
         if (err) {
             alert('We couldn\'t process your like. Please try again!');
@@ -32,7 +38,7 @@ export default function Votes({id, votes}) {
     };
 
     function handleClick() {
-        disabler()
+        disabler();
         setVote((curr) => {
             if (upvoteNext) {
                 return curr + 1
@@ -52,33 +58,10 @@ export default function Votes({id, votes}) {
             <div className={s.vote}>
                 <span>{!upvoteNext && 'Liked! '}</span>
                 <button name='votebutton' id='votebutton' onClick={handleClick} disabled={disabled}>
-                    <img 
-                        className={s.like}
-                        title={upvoteNext ? 'Click to like' : 'Undo like'} 
-                        src='https://img.icons8.com/color/512/approval.png'
-                         />
+                    {voteImage}
                 </button>
-
-                <span>
-                    {vote}
-                </span>
+                <span>{vote}</span>
             </div>
         </div>
     )
-
-    // return (
-    //     <div>
-    //         <div className={s.vote}>
-    //             <span>{!upvoteNext && 'Liked!'}</span>
-    //             <img 
-    //                 className={s.like}
-    //                 title={upvoteNext ? 'Click to like' : 'Undo like'} 
-    //                 src='https://img.icons8.com/color/512/approval.png'
-    //                 onClick={handleClick} />
-    //             <span>
-    //                 {vote}
-    //             </span>
-    //         </div>
-    //     </div>
-    // )
 };
