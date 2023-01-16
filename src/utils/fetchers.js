@@ -1,5 +1,5 @@
 import axios from "axios";
-import { createTopicArr, formatArticleList } from "./formatters";
+import { createCommentArr, createTopicArr, formatArticleList } from "./formatters";
 
 axios.defaults.baseURL = 'https://nc-news-by-hadrian.onrender.com/api'
 
@@ -20,6 +20,19 @@ export function fetchCommentsForArticle(id) {
     return axios.get(`/articles/${id}/comments`)
         .then(({data}) => data);
 };
+
+//STARTED WORKING ON THIS PROMISE ALL! - to delete if we reassign this to BE:
+// export async function fetchAllForComments(id) {
+//     try {
+//         const imagedComments = await Promise.all([
+//             axios.get(`/articles/${id}/comments`),
+//             axios.get(`/users`)
+//         ])
+//     }
+//     catch (err) {
+//         console.log(err)
+//     }
+// };
 
 export function fetchTopics() {
     return axios.get('/topics')

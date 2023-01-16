@@ -1,5 +1,5 @@
 import s from '../css/AddComment.module.css';
-import { useContext, useState, useRef } from 'react';
+import { useContext, useState, useRef, useEffect } from 'react';
 import { LoggedInContext } from '../contexts/LoggedIn';
 import { postComment } from '../utils/posters';
 
@@ -8,7 +8,6 @@ export default function CommentAdder({id}) {
     const {loggedin} = useContext(LoggedInContext);
     const abortRef = useRef(null);
     const [loading, setLoading] = useState(false);
-    
     const [input, setInput] = useState({
         username: '',
         body: '',
@@ -30,16 +29,16 @@ export default function CommentAdder({id}) {
                     setInput({
                         username: loggedin.username,
                         body: '',
-                    })
+                    });
                 } else {
-                    alert('Whoops, something went wrong. Please try again!')
+                    alert('Whoops, something went wrong. Please try again!');
                 }    
             })
         }, 2000)
     };
     
     function handleInput(e) {
-        setInput({...input, body: e.target.value})
+        setInput({...input, body: e.target.value});
     };
 
     if (!loggedin) return;
@@ -52,6 +51,7 @@ export default function CommentAdder({id}) {
                 value={input.body}
                 disabled={loading}
                 placeholder='Enter comments...'
+                maxLength={200}
                 required />
             <br />
             <button
