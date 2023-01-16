@@ -1,7 +1,7 @@
 import axios from "axios";
 import { createTopicArr, formatArticleList } from "./formatters";
 
-axios.defaults.baseURL = 'https://persian-blue-millipede-veil.cyclic.app/api'
+axios.defaults.baseURL = 'https://nc-news-by-hadrian.onrender.com/api'
 
 
 export function fetchArticles(topic) {

@@ -1,10 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from 'react-router-dom';
-import { fetchCommentsForArticle } from "../utils/fetchers";
-import Loading from './Loading';
-import CommentAdder from './CommentAdder';
-import Comment from './Comment';
-import useScrollToHeader from '../customEffects/useScrollToHeader';
+import { Loading, CommentAdder, Comment, useScrollToHeader, fetchCommentsForArticle } from './index';
 
 
 export default function Comments({id}) {

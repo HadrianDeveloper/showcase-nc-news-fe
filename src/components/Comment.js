@@ -1,6 +1,5 @@
 import s from '../css/Comment.module.css';
-import { useState } from "react";
-import { useContext } from 'react';
+import { useState, useContext } from 'react';
 import { LoggedInContext } from '../contexts/LoggedIn';
 import deleteComment from '../utils/deleters';
 

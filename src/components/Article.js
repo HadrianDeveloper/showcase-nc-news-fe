@@ -1,20 +1,23 @@
 import s from '../css/Article.module.css';
 import { useEffect, useState } from "react"
 import { useParams, useNavigate } from "react-router-dom"
-import { fetchArticleById } from "../utils/fetchers"
-import { dateformatter } from "../utils/formatters";
-import Loading from './Loading';
-import Votes from './Votes';
-import Comments from './Comments';
+import { Loading, Votes, Comments, fetchArticleById, dateformatter } from './index';
 
 
 export default function Article() {
+
+    const backImage = <img  
+        src='https://img.icons8.com/ios-glyphs/512/circled-left-2.png' 
+        alt='go back to previous page'
+        className={s.backButton}
+        onClick={() => navigate(-1)}
+    />
+
+    const navigate = useNavigate();
     const [loading, setLoading] = useState(true);
     const [article, setArticle] = useState({});
-    
     const {article_id} = useParams();
-    const navigate = useNavigate();
-
+    
     useEffect(() => {
         fetchArticleById(article_id)
         .then((article) => {
@@ -28,13 +31,9 @@ export default function Article() {
     if (loading) return <Loading />
 
     return (
-    <main>
+
     <section className={s.articleName}>
-        <img  
-            src='https://img.icons8.com/ios-glyphs/512/circled-left-2.png' 
-            alt='go back to previous page'
-            className={s.backButton}
-            onClick={() => navigate(-1)} />
+        {backImage}
         <article>
             <span className={s.topic}>
                 {article.topic.toUpperCase()}
@@ -53,6 +52,6 @@ export default function Article() {
         <hr />
         <Comments id={article_id} />
     </section>
-    </main> 
+
     )
 };

@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import { fetchTopics } from "../utils/fetchers"
 
-
 export default function TopicFilter() {
     
     const navigate = useNavigate();
@@ -11,7 +10,9 @@ export default function TopicFilter() {
 
     useEffect(() => {
         fetchTopics()
-        .then((topics) => setCurrTopics(topics))
+        .then((topics) => {
+            setCurrTopics(topics);
+        })
     }, []);
 
     function handleSelect(e) {
@@ -21,8 +22,8 @@ export default function TopicFilter() {
 
     return (
         <section className={s.selectBox}>
-            <select onChange={handleSelect} className={s.option}>
-                <option disabled>Pick a topic</option>
+            <select defaultValue='' onChange={handleSelect} className={s.option}>
+                <option value={''} disabled>Pick a topic</option>
                 {currTopics.map((topic, i) => 
                     <option value={topic} key={i}>
                         {topic}
