@@ -12,7 +12,7 @@ export default function Comments({id}) {
     function sectionHeader() {
         return comments.length ? 
             `${comments.length} comments` : 'No comments yet!'
-    }
+    };
 
     useEffect(() => {
         fetchCommentsForArticle(id)
