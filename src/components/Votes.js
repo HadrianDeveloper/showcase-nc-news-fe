@@ -1,7 +1,9 @@
 import s from '../css/Votes.module.css';
+import confetti from 'canvas-confetti';
 import { useContext, useEffect, useState } from 'react';
 import { patchVote } from '../utils/patchers';
 import { LoggedInContext } from '../contexts/LoggedIn';
+
 
 export default function Votes({id, votes}) {
 
@@ -49,8 +51,10 @@ export default function Votes({id, votes}) {
         disabler();
         setVote((curr) => {
             if (upvoteNext) {
+                confetti();
                 return curr + 1
             } else {
+                confetti({colors: ['#000000']});
                 return curr - 1
             }
         });
