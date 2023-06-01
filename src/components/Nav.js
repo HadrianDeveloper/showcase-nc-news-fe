@@ -15,6 +15,10 @@ export default function Nav() {
                 <Link className={s.navlink} to='/'>Home</Link>
                 <Link className={s.navlink} to='/articles'>Articles</Link>
                 <Link className={s.navlink} to='/login'>{loggedin ? 'Log out' : 'Log in'}</Link>
+                {loggedin && (
+                    <Link className={s.navlink} to='/upload'>Upload spike</Link>
+                )}
+                
             </nav>
             <hr />
         </div>

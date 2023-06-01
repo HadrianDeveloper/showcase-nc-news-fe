@@ -1,7 +1,7 @@
 import './App.css';
 import { Routes, Route } from 'react-router-dom';
-import { Header, Nav, Login, Home, Article, Articles, Error404} from './components/index';
-
+import { Header, Nav, Login, Home, Article, Articles, Error404 } from './components/index';
+import Upload from './components/Upload';
 
 function App() {
 
@@ -19,6 +19,7 @@ function App() {
           <Route path='/articles' element={<Articles />} />
           <Route path='/articles/topic/:topic' element={<Articles />} /> 
           <Route path='/articles/:article_id' element={<Article />} />
+          <Route path='/upload' element={<Upload />} />
           <Route path='/*' element={<Error404 />} />
         </Routes>
       </main>
