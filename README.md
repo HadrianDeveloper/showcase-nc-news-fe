@@ -9,6 +9,10 @@ A 'mobile first' approach was adopted for this project, targetting users who bro
 
 This application is bootstrapped with [Create React App](https://github.com/facebook/create-react-app), and deployed on Netlify. 
 
+Diagram of the component hierarchy and location of states:
+
+<img src='./component-hierarchy.png' alt='diagram of components and state' width='450px'  />
+
 ### Backend
 
 The backend project is located in my [GitHub account](https://github.com/HadrianDeveloper/NC-News), and has a PSQL database hosted on [ElephantSQL](https://www.elephantsql.com/) with APIs on [Render](www.render.com). 
