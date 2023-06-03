@@ -21,19 +21,6 @@ export function fetchCommentsForArticle(id) {
         .then(({data}) => data);
 };
 
-//STARTED WORKING ON THIS PROMISE ALL! - to delete if we reassign this to BE:
-// export async function fetchAllForComments(id) {
-//     try {
-//         const imagedComments = await Promise.all([
-//             axios.get(`/articles/${id}/comments`),
-//             axios.get(`/users`)
-//         ])
-//     }
-//     catch (err) {
-//         console.log(err)
-//     }
-// };
-
 export function fetchTopics() {
     return axios.get('/topics')
         .then(({data}) => createTopicArr(data.allTopics))
