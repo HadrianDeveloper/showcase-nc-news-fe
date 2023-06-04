@@ -1,0 +1,26 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 50px;
+}
+
+.preview {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+}
+  
+.uploaded { 
+    max-width: 100%;
+    max-height: 320px;
+}
+
+.delete {
+    cursor: pointer;
+    padding: 15px;
+    background: red;
+    color: white;
+    border: none;
+}

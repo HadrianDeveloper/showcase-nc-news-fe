@@ -1,5 +1,5 @@
 import s from '../css/AddComment.module.css';
-import { useContext, useState, useRef, useEffect } from 'react';
+import { useContext, useState, useRef } from 'react';
 import { LoggedInContext } from '../contexts/LoggedIn';
 import { postComment } from '../utils/posters';
 
@@ -20,9 +20,11 @@ export default function CommentAdder({id}) {
     };
 
     function handleSubmit() {
+        setInput({...input, username: loggedin.username})
+        console.log(input)
         setLoading(true);
         abortRef.current = setTimeout(() => {
-            postComment(id, input = loggedin.username)
+            postComment(id, input)
             .then((status) => {
                 setLoading(false);
                 if (status === 201) {

@@ -10,9 +10,9 @@ export default function Home() {
     if (!loggedin) return <p>Welcome!</p>
     
     return (
-        <main className={s.loadingBody}>
-            <p>Welcome {loggedin.username}!</p>
-            <img src={loggedin.avatar_url} alt={"User's avatar"} />
+        <main>
+            <p>Welcome {loggedin.username}! </p>
+            <img style={s} src={loggedin.avatar_url} alt={"User's avatar"} />
         </main>
     )
 };
